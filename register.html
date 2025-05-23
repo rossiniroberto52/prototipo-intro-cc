@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>FlexCar - Cadastro</title>
+    <style>
+        /* Estilos herdados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #register_header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            margin-right: auto;
+            font-size: 1.5em;
+            color: #cf0e0e;
+            font-weight: bold;
+        }
+
+        /* Estilos específicos do registro */
+        .register-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .register-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .register-title {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #cf0e0e;
+            outline: none;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #cf0e0e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .register-button:hover {
+            background-color: #a00b0b;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #cf0e0e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .login-link a:hover {
+            color: #333;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #cf0e0e;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            display: flex;
+        }
+
+        .notification-success {
+            background: #28a745 !important;
+        }
+
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 15px;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+
+        @media (max-width: 480px) {
+            .notification {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .register-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="register_header">
+        <div class="logo">FlexCar</div>
+        <button onclick="window.location.href='login.html'">Já tem conta? Entrar</button>
+    </header>
+
+    <div class="register-container">
+        <div class="register-box">
+            <h2 class="register-title">Criar nova conta</h2>
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nome Completo:</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="birthdate">Data de Nascimento:</label>
+                        <input type="date" id="birthdate" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail:</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Senha:</label>
+                        <input type="password" id="password" class="form-input" required minlength="8">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="confirm-password">Confirmar Senha:</label>
+                        <input type="password" id="confirm-password" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="cnh">Número da CNH:</label>
+                    <input type="text" id="cnh" class="form-input" 
+                           pattern="\d{11}" 
+                           title="Digite os 11 dígitos da CNH" 
+                           required>
+                </div>
+
+                <button type="submit" class="register-button">Criar Conta</button>
+
+                <div class="login-link">
+                    Já tem conta? <a href="login.html">Faça login aqui</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+     <div class="notification" id="notification">
+        <svg class="notification-icon" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 12a8 8 0 11-16 0 8 8 0 0116 0zm-3-7a1 1 0 00-1.4-1.4L11 10.2 8.7 7.9A1 1 0 007.3 9.3l3 3a1 1 0 001.4 0l6-6z"/>
+        </svg>
+        <span>Conta criada com sucesso!</span>
+        <button class="notification-close" onclick="hideNotification()">✕</button>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validações
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const cnh = document.getElementById('cnh').value;
+            
+                
+
+            // Verifica se as senhas coincidem
+            if(password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            // Valida CNH (11 dígitos)
+            if(!/^\d{11}$/.test(cnh)) {
+                alert('CNH inválida! Deve conter 11 dígitos numéricos.');
+                return;
+            }
+
+            // Simulação de cadastro
+            const userData = {
+                name: document.getElementById('name').value,
+                birthdate: document.getElementById('birthdate').value,
+                email: document.getElementById('email').value,
+                password: password,
+                cnh: cnh
+            };
+
+            console.log('Dados do cadastro:', userData);
+            
+            // Redirecionamento simulado
+            window.location.href = 'perfil.html';
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show', 'notification-success');
+            
+            // Fecha automaticamente após 5 segundos
+            setTimeout(() => {
+                hideNotification();
+                window.location.href = 'perfil.html'; // Redireciona após fechar
+            }, 5000);
+        }
+
+        function hideNotification() {
+            document.getElementById('notification').classList.remove('show');
+        }
+
+        // Modificação no submit do formulário
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // ... (validações anteriores mantidas) ...
+
+            // Simulação de cadastro bem-sucedido
+            console.log('Dados do cadastro:', userData);
+            
+            // Mostra a notificação ao invés de redirecionar direto
+            showNotification();
+            });
+        });
+    </script>
+</body>
+</html>

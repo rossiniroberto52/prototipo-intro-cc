@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>FlexCar - Meu Perfil</title>
+    <style>
+        /* Estilos herdados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #profile_header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            margin-right: auto;
+            font-size: 1.5em;
+            color: #cf0e0e;
+            font-weight: bold;
+        }
+
+        /* Estilos específicos do perfil */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .profile-sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #cf0e0e;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        .profile-info {
+            margin-bottom: 30px;
+        }
+
+        .profile-info-item {
+            margin: 15px 0;
+            color: #666;
+        }
+
+        .profile-info-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .profile-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .rental-history-title {
+            color: #333;
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .rental-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f8f8f8;
+            margin-bottom: 15px;
+        }
+
+        .rental-item img {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .rental-details {
+            flex: 1;
+        }
+
+        .profile-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #cf0e0e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .profile-button:hover {
+            background-color: #a00b0b;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 30px;
+            }
+
+            .profile-sidebar {
+                order: 2;
+            }
+
+            .rental-item {
+                flex-direction: column;
+            }
+
+            .rental-item img {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="profile_header">
+        <div class="logo">FlexCar</div>
+        <button class="profile-button" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </header>
+
+    <div class="profile-container">
+        <!-- Sidebar com informações do usuário -->
+        <div class="profile-sidebar">
+            <div class="profile-avatar">JD</div>
+            
+            <div class="profile-info">
+                <div class="profile-info-item">
+                    <strong>Nome</strong>
+                    <span id="userName">João da Silva</span>
+                </div>
+                
+                <div class="profile-info-item">
+                    <strong>E-mail</strong>
+                    <span id="userEmail">joao@exemplo.com</span>
+                </div>
+                
+                <div class="profile-info-item">
+                    <strong>CNH</strong>
+                    <span id="userCNH">12345678901</span>
+                </div>
+                
+                <div class="profile-info-item">
+                    <strong>Membro desde</strong>
+                    <span id="memberSince">Janeiro 2023</span>
+                </div>
+            </div>
+
+            <button class="profile-button" onclick="openEditModal()">Editar Perfil</button>
+            <button class="profile-button" onclick="logout()">Sair</button>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="profile-content">
+            <h2 class="rental-history-title">Histórico de Aluguéis</h2>
+            
+            <!-- Item 1 -->
+            <div class="rental-item">
+                <img src="carro1.png" alt="Carro Alugado">
+                <div class="rental-details">
+                    <h3>Ford Mustang GT</h3>
+                    <p>Data: 01/01/2024 - 05/01/2024</p>
+                    <p>Status: Concluído</p>
+                    <p>Valor Total: R$ 2.250,00</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="rental-item">
+                <img src="carro2.png" alt="Carro Alugado">
+                <div class="rental-details">
+                    <h3>Jeep Compass</h3>
+                    <p>Data: 15/12/2023 - 20/12/2023</p>
+                    <p>Status: Em curso</p>
+                    <p>Valor Total: R$ 1.400,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulação de dados do usuário
+        const userData = {
+            name: "João da Silva",
+            email: "joao@exemplo.com",
+            cnh: "12345678901",
+            memberSince: "Janeiro 2023",
+            avatarInitials: "JD"
+        };
+
+        // Carrega dados do usuário
+        function loadProfile() {
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userEmail').textContent = userData.email;
+            document.getElementById('userCNH').textContent = userData.cnh;
+            document.getElementById('memberSince').textContent = userData.memberSince;
+            document.querySelector('.profile-avatar').textContent = userData.avatarInitials;
+        }
+
+        // Função de logout
+        function logout() {
+            localStorage.removeItem('userToken');
+            window.location.href = 'index.html';
+        }
+
+        // Função para editar perfil (simulação)
+        function openEditModal() {
+            alert('Funcionalidade de edição em desenvolvimento!');
+        }
+
+        // Carrega os dados ao iniciar
+        loadProfile();
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>FlexCar - Login</title>
+    <style>
+        /* Estilos herdados */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #login_header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            margin-right: auto;
+            font-size: 1.5em;
+            color: #cf0e0e;
+            font-weight: bold;
+        }
+
+        /* Estilos específicos do login */
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-title {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #cf0e0e;
+            outline: none;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #cf0e0e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #a00b0b;
+        }
+
+        .login-links {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .login-links a {
+            color: #cf0e0e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .login-links a:hover {
+            color: #333;
+        }
+
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 30px 20px;
+            }
+
+            .login-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="login_header">
+        <div class="logo">FlexCar</div>
+        <button onclick="window.location.href='register.html'">Criar Conta</button>
+    </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2 class="login-title">Acesse sua conta</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail:</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Senha:</label>
+                    <input type="password" id="password" class="form-input" required>
+                </div>
+
+                <button type="submit" class="login-button">Entrar</button>
+
+                <div class="login-links">
+                    <a href="#forgot-password">Esqueceu a senha?</a><br>
+                    <span>Não tem conta? <a href="register.html">Cadastre-se</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validação básica
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if(!email || !password) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Simulação de login (substituir por chamada real à API)
+            console.log('Tentativa de login:', { email, password });
+            
+            // Redirecionamento simulado
+            window.location.href = 'perfil.html';
+        });
+    </script>
+</body>
+</html>
