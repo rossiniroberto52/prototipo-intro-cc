@@ -1,0 +1,128 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #login_or_register {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #login_or_register button {
+            background-color: rgb(26, 25, 25);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        /* Estilos específicos da página de aluguel */
+        .rental-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-details {
+            border-right: 2px solid #f4f4f4;
+            padding-right: 40px;
+        }
+
+        .selected-car-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .rental-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #cf0e0e;
+            outline: none;
+        }
+
+        .price-summary {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .confirm-button {
+            background: #cf0e0e;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .confirm-button:hover {
+            background: #a00b0b;
+        }
+
+        @media (max-width: 768px) {
+            .rental-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 30px;
+            }
+
+            .car-details {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 2px solid #f4f4f4;
+                padding-bottom: 30px;
+            }
+        }

@@ -1,0 +1,125 @@
+/* Estilos herdados da página principal */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #login_or_register {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background-color: #f4f4f4;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #login_or_register button {
+            background-color: rgb(26, 25, 25);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        /* Estilos específicos para a grade de carros */
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+            width: min(95%, 1200px);
+            margin: 30px auto;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #cf0e0e;
+        }
+
+        .car-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .car-model {
+            color: #cf0e0e;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+        }
+
+        .car-price {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .car-details {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .car-details li {
+            margin: 8px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rent-button {
+            background: #cf0e0e;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .rent-button:hover {
+            background: #a00b0b;
+        }
+
+        @media (max-width: 768px) {
+            .cars-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .car-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }

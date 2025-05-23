@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>FlexCar - Frota de Carros</title>
+    <link rel = "stylesheet" type="text/css" href="style_cars.css" media="screen"/>
+</head>
+<body>
+    <div id="login_or_register">
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Registrar</button>
+    </div>
+
+    <div class="cars-grid">
+        <!-- Card 1 -->
+        <div class="car-card">
+            <img src="carro1.png" alt="Carro Esportivo" class="car-image">
+            <div class="car-info">
+                <h3 class="car-model">Ford Mustang GT</h3>
+                <p class="car-price">R$ 450/dia</p>
+                <ul class="car-details">
+                    <li>🛠️ 5.0L V8</li>
+                    <li>⏱️ 0-100km/h em 4.2s</li>
+                    <li>💺 4 Lugares</li>
+                    <li>📶 Bluetooth</li>
+                </ul>
+            </div>
+            <button class="rent-button" onclick="redirectToRental('mustang-gt')">Alugar Agora</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="car-card">
+            <img src="carro2.png" alt="SUV Familiar" class="car-image">
+            <div class="car-info">
+                <h3 class="car-model">Jeep Compass</h3>
+                <p class="car-price">R$ 280/dia</p>
+                <ul class="car-details">
+                    <li>🛠️ 2.0 Turbo</li>
+                    <li>🛣️ 4x4</li>
+                    <li>💺 5 Lugares</li>
+                    <li>🚗 Piloto Automático</li>
+                </ul>
+            </div>
+            <button class="rent-button" onclick="redirectToRental('jeep-compass')">Alugar Agora</button>
+        </div>
+
+        
+    </div>
+
+    <script>
+        function redirectToRental(carId) {
+            // Guarda o ID do carro no localStorage
+            localStorage.setItem('selectedCar', carId);
+            // Redireciona para a página de aluguel
+            window.location.href = 'shopping.html';
+        }
+    </script>
+</body>
+</html>
